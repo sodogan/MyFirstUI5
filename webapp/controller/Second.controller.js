@@ -1,18 +1,34 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/base/Log"
-], function (Controller, Log) {
+	"sap/base/Log",
+	'sap/m/MessageBox',
+	"sap/m/Text"
+
+], function (Controller, Log, MessageBox) {
 	"use strict";
 
-	return Controller.extend("myFiori.controller.Second", {
-		onBack: function () {
-			function createLog(app) {
-				Log.info("Info inside the Secondller" + app);
-				Log.debug("Debug inside the SecondController");
-			}
-			var parentApp = this.getView().getParent();
-			createLog(parentApp);
+	function createLog(message) {
+		Log.info(message);
+		Log.debug(message);
+	}
 
+	function displayMessage(view) {
+		var bCompact = !!view.$().closest(".sapUiSizeCompact").length;
+		MessageBox.information(
+			"You are about to go to the first page.", {
+				styleClass: bCompact ? "sapUiSizeCompact" : ""
+			}
+		);
+	}
+
+	return Controller.extend("myFiori.controller.Second", {
+
+		onBack: function () {
+			var currentView = this.getView();
+			var parentApp = currentView.getParent();
+			createLog("Info inside the Second Controller");
+			displayMessage(currentView);
+			// navigate to the first view
 			parentApp.to("idFirst");
 
 		}

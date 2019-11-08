@@ -7,6 +7,24 @@ sap.ui.define([
 	],
 	function (Controller, Log, MessageBox, JSONModel, Text) {
 		"use strict";
+		//Custom class to help logging
+		function Utility() {
+			this.createLog = function (message) {
+				Log.info(message);
+				Log.debug(message);
+			};
+			this.displayMessage = function (view) {
+				var bCompact = !!view.$().closest(".sapUiSizeCompact").length;
+				MessageBox.information(
+					"You are about to go to the next page.", {
+						styleClass: bCompact ? "sapUiSizeCompact" : ""
+					}
+				);
+			};
+		}
+
+		var util = new Utility();
+
 		// Attach an anonymous function to the SAPUI5 'init' event
 		sap.ui.getCore().attachInit(function () {
 			// Create a JSON model from an object literal
@@ -23,44 +41,18 @@ sap.ui.define([
 				text: "{/greetingText}"
 			}).placeAt("content");
 			*/
+			util.createLog("Inside the attachInit");
+
 		});
 
-		function Utility() {
-			this.createLog = function (message) {
-				Log.info(message);
-				Log.debug(message);
-			};
-			this.displayMessage = function (information) {
-				MessageBox.information();
-			};
-		}
-
-		function createLog(app) {
-			Log.info("Info inside the FirstController" + app);
-			Log.debug("Debug inside the FirstController");
-		}
-
-		function displayMessage(view) {
-			var bCompact = !!view.$().closest(".sapUiSizeCompact").length;
-			MessageBox.information(
-				"You are about to go to the next page.", {
-					styleClass: bCompact ? "sapUiSizeCompact" : ""
-				}
-			);
-		}
 		return Controller.extend("myFiori.controller.First", {
 			onNext: function () {
-
 				var currentView = this.getView();
 				var parentApp = currentView.getParent();
-				var util = new Utility();
-				util.createLog("testing utils");
-				createLog(parentApp);
-				displayMessage(currentView);
-				/*Log.warning("Aquí un warning");
-				Log.error("Aquí un error");
-				Log.fatal("Aquí una catástrofe");
-				*/
+
+				util.createLog("Inside the First Controller return");
+				util.displayMessage(currentView);
+				//goto the next view
 				parentApp.to("idSecond");
 			}
 		});
