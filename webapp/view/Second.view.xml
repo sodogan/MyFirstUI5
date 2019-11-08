@@ -1,7 +1,7 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="myFiori.controller.Second">
 	<Page title="Second Page">
 		<content>
-			<Button text="Go Back" press="onBack"></Button>
+			<Button text="Go Back" type="Accept" icon="sap-icon://action" press="onBack"></Button>
 		</content>
 	</Page>
 </mvc:View>
