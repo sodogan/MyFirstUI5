@@ -45,7 +45,7 @@ sap.ui.define([
 
 		});
 
-		return Controller.extend("myFiori.controller.First", {
+		Controller.extend("myFiori.controller.First", {
 			onNext: function () {
 				var currentView = this.getView();
 				var parentApp = currentView.getParent();
