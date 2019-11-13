@@ -2,33 +2,49 @@
 	controllerName="myFiori.controller.First">
 	<Page title="Address Page">
 		<content>
-			<f:SimpleForm id="simpleFormChange" title="Address" editable="true" class="editableForm">
-				<f:content>
-					<Label text="{i18n>layoutFormName}"/>
-					<Input value="{address>/Name}"/>
-					<Label text="{i18n>layoutFormStreet}"/>
-					<Input value="{address>/Street}"/>
-					<Label text="{i18n>layoutFormHouseNumber}"/>
-					<Input value="{address>/HouseNumber}"/>
-					<Label text="{i18n>layoutFormZIPCode}"/>
-					<Input value="{address>/ZIPCode}"/>
-					<Label text="{i18n>layoutFormCity}"/>
-					<Input value="{address>/City}"/>
-					<Label text="{i18n>layoutFormCountry}"/>
-					<Select>
-						<items>
-							<core:Item text="{i18n>layoutCountryGermany}"/>
-							<core:Item text="{i18n>layoutCountryUSA}"/>
-							<core:Item text="{i18n>layoutCountryEngland}"/>
-						</items>
-					</Select>
-				</f:content>
-			</f:SimpleForm>
-			<Toolbar>
-				<ToolbarSpacer/>
-				<Button text="Go to Next" type="Accept" icon="sap-icon://action" press="onNext"></Button>
-				<Button text="{i18n>layoutDraftButton}"/>
-			</Toolbar>
+			<IconTabBar id="idIconTabBarMulti" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter icon="sap-icon://hint">
+						<Text text="Info content goes here ..."/>
+						<f:SimpleForm id="simpleFormChange" title="Address" editable="true" class="editableForm">
+							<f:content>
+								<Label text="{i18n>layoutFormName}"/>
+								<Input value="{address>/Name}"/>
+								<Label text="{i18n>layoutFormStreet}"/>
+								<Input value="{address>/Street}"/>
+								<Label text="{i18n>layoutFormHouseNumber}"/>
+								<Input value="{address>/HouseNumber}"/>
+								<Label text="{i18n>layoutFormZIPCode}"/>
+								<Input value="{address>/ZIPCode}"/>
+								<Label text="{i18n>layoutFormCity}"/>
+								<Input value="{address>/City}"/>
+								<Label text="{i18n>layoutFormCountry}"/>
+								<Select>
+									<items>
+										<core:Item text="{i18n>layoutCountryGermany}"/>
+										<core:Item text="{i18n>layoutCountryUSA}"/>
+										<core:Item text="{i18n>layoutCountryEngland}"/>
+									</items>
+								</Select>
+							</f:content>
+						</f:SimpleForm>
+						<Toolbar>
+							<ToolbarSpacer/>
+							<Button text="Go to Next" type="Accept" icon="sap-icon://action" press="onNext"></Button>
+							<Button text="{i18n>layoutDraftButton}"/>
+						</Toolbar>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://attachment" count="3">
+						<Text text="Attachments go here ..."/>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://notes" count="12">
+						<Text text="Notes go here ..."/>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://group">
+						<Text text="People content goes here ..."/>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
 		</content>
 	</Page>
 </mvc:View>

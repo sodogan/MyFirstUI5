@@ -1,7 +1,18 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="myFiori.controller.Second">
-	<Page title="Second Page">
-		<content>
-			<Button text="Go Back" type="Accept" icon="sap-icon://action" press="onBack"></Button>
-		</content>
-	</Page>
+<mvc:View xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<IconTabBar id="idIconTabBarMulti" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+		<items>
+			<IconTabFilter icon="sap-icon://hint">
+				<Text text="Info content goes here ..."/>
+			</IconTabFilter>
+			<IconTabFilter icon="sap-icon://attachment" count="3">
+				<Text text="Attachments go here ..."/>
+			</IconTabFilter>
+			<IconTabFilter icon="sap-icon://notes" count="12">
+				<Text text="Notes go here ..."/>
+			</IconTabFilter>
+			<IconTabFilter icon="sap-icon://group">
+				<Text text="People content goes here ..."/>
+			</IconTabFilter>
+		</items>
+	</IconTabBar>
 </mvc:View>
