@@ -1,6 +1,8 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="myFiori.controller.First">
 	<Page title="First Page">
 		<content>
+			<Label text="Password" labelFor="passwordInput"/>
+			<Input id="passwordInput" type="Password" placeholder="Enter password ..."/>
 			<Button text="Go to Next" type="Accept" icon="sap-icon://action" press="onNext"></Button>
 		</content>
 	</Page>
