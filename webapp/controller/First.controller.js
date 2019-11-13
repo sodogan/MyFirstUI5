@@ -23,38 +23,43 @@ sap.ui.define([
 			};
 		}
 
-		var util = new Utility();
+		return Controller.extend("myFiori.controller.First", {
+			onInit: function (evt) {
 
-		// Attach an anonymous function to the SAPUI5 'init' event
-		sap.ui.getCore().attachInit(function () {
-			// Create a JSON model from an object literal
-			/*
-			var oModel = new JSONModel({
-				greetingText: "Hi, my name is Harry Hawk"
-			});
-			// Assign the model object to the SAPUI5 core
-			sap.ui.getCore().setModel(oModel);
+				var oResourceModel = new sap.ui.model.resource.ResourceModel({
+					bundleName: "myFiori.i18n.i18n"
+				});
 
-			// Display a text element whose text is derived
-			// from the model object
-			new Text({
-				text: "{/greetingText}"
-			}).placeAt("content");
-			*/
-			util.createLog("Inside the attachInit");
-			var oResourceModel = new sap.ui.model.resource.ResourceModel({
-				bundleName: "myFiori.i18n.i18n"
-			});
+				// Assign the model object to the SAPUI5 core using the name "i18n"
+				sap.ui.getCore().setModel(oResourceModel, "i18n");
 
-			// Assign the model object to the SAPUI5 core using the name "i18n"
-			sap.ui.getCore().setModel(oResourceModel, "i18n");
+				// set explored app's demo model on this sample
+				/*
+								var oData = {
+									address: {
+										Name: "SAP SE",
+										Street: "Dietmar-Hopp-Allee",
+										HouseNumber: "16",
+										ZIPCode: "69190",
+										City: "Walldorf",
+										Country: "Germany",
+										Url: "www.sap.com",
+										Twitter: "@sap",
+										Tel: "+49 6227 747474",
+										Email: "info@sap.com"
+									}
+								};
+								var oModel = new JSONModel(oData);
+								this.getView().setModel(oModel);
+				*/
+				//var oHelloModel = new JSONModel(sap.ui.require.toUrl("model") + "/Address.json");
+				//this.getView().setModel(oHelloModel, "address");
 
-		});
-
-		Controller.extend("myFiori.controller.First", {
+			},
 			onNext: function () {
 				var currentView = this.getView();
 				var parentApp = currentView.getParent();
+				var util = new Utility();
 
 				util.createLog("Inside the First Controller return");
 				util.displayMessage(currentView);

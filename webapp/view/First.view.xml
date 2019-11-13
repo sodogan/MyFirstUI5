@@ -9,15 +9,15 @@
 						<f:SimpleForm id="simpleFormChange" title="Address" editable="true" class="editableForm">
 							<f:content>
 								<Label text="{i18n>layoutFormName}"/>
-								<Input value="{address>/Name}"/>
+								<Input value="{/address/Name}"/>
 								<Label text="{i18n>layoutFormStreet}"/>
-								<Input value="{address>/Street}"/>
+								<Input value="{/address/Street}"/>
 								<Label text="{i18n>layoutFormHouseNumber}"/>
-								<Input value="{address>/HouseNumber}"/>
+								<Input value="{/address/HouseNumber}"/>
 								<Label text="{i18n>layoutFormZIPCode}"/>
-								<Input value="{address>/ZIPCode}"/>
+								<Input value="{/address/ZIPCode}"/>
 								<Label text="{i18n>layoutFormCity}"/>
-								<Input value="{address>/City}"/>
+								<Input value="{/address/City}"/>
 								<Label text="{i18n>layoutFormCountry}"/>
 								<Select>
 									<items>
