@@ -4,8 +4,6 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("myFiori.controller.App", {
-		onInit: function () {
-
-		}
+		onInit: function () {}
 	});
 });

@@ -42,6 +42,12 @@ sap.ui.define([
 			}).placeAt("content");
 			*/
 			util.createLog("Inside the attachInit");
+			var oResourceModel = new sap.ui.model.resource.ResourceModel({
+				bundleName: "myFiori.i18n.i18n"
+			});
+
+			// Assign the model object to the SAPUI5 core using the name "i18n"
+			sap.ui.getCore().setModel(oResourceModel, "i18n");
 
 		});
 
